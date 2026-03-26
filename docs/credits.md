@@ -1,6 +1,6 @@
 # Credits
 
-**VFX Toolbox** has been created by someone.
+**VFX Toolbox** has been created by Sam Pluemacher.
 
 This product uses LateNite's [FCPXMLKit](https://fcp.cafe/latenite/#fcpxmlkit) for FCPXML processing, created by [David Peterson](https://github.com/randomeizer/).
 
