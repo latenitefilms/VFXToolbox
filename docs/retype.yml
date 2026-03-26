@@ -1,12 +1,12 @@
 input: .
 output: .retype
 
-url: <<GITHUB_PROJECT_NAME>>.fcp.cafe
+url: VFXToolbox.fcp.cafe
 
 favicon: static/favicon.ico
 
 branding:
-  title: <<APPLICATION_FULL_NAME>>
+  title: VFX Toolbox
   logo: static/logo-dark.png
   logoDark: static/logo-light.png
 
@@ -17,12 +17,12 @@ links:
   icon: desktop-download
 
 - text: Issues
-  link: https://github.com/latenitefilms/<<GITHUB_PROJECT_NAME>>/issues
+  link: https://github.com/latenitefilms/VFXToolbox/issues
   icon: issue-opened
   target: blank
 
 - text: Discussions
-  link: https://github.com/latenitefilms/<<GITHUB_PROJECT_NAME>>/discussions
+  link: https://github.com/latenitefilms/VFXToolbox/discussions
   icon: comment-discussion
   target: blank
 

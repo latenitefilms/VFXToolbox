@@ -5,4 +5,4 @@
 **🎉 Released:**
 - COMING VERY SOON!
 
-This is the first release of **<<APPLICATION_FULL_NAME>>**. Woohoo!
+This is the first release of **VFX Toolbox**. Woohoo!

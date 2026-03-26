@@ -1,3 +1,3 @@
-# <<APPLICATION_FULL_NAME>>
+# VFX Toolbox
 
 Application description coming soon!

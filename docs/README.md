@@ -1,5 +1,5 @@
-# <<APPLICATION_FULL_NAME>>
+# VFX Toolbox
 
-**<<APPLICATION_FULL_NAME>>** does something.
+**VFX Toolbox** does something.
 
 > [:icon-desktop-download: Click here to **buy** on the **Mac App Store**](/buy/)
