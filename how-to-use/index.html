@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827812665651">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.4.0.827813262063">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.4.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>How To Use</title>
     <meta name="title" content="How To Use">
-    <meta name="description" content="Instructions...">
+    <meta name="description" content="Export a complete inventory of every clip in an Final Cut Pro event or project timeline as a tab-delimited file suitable for database import (e.g.,">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://vfxtoolbox.fcp.cafe/how-to-use/">
@@ -21,7 +21,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vfxtoolbox.fcp.cafe/how-to-use/">
     <meta property="og:title" content="How To Use">
-    <meta property="og:description" content="Instructions...">
+    <meta property="og:description" content="Export a complete inventory of every clip in an Final Cut Pro event or project timeline as a tab-delimited file suitable for database import (e.g.,">
     <meta property="og:site_name" content="VFX Toolbox">
     <meta property="og:locale" content="en_US">
 
@@ -29,16 +29,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://vfxtoolbox.fcp.cafe/how-to-use/">
     <meta name="twitter:title" content="How To Use">
-    <meta name="twitter:description" content="Instructions...">
+    <meta name="twitter:description" content="Export a complete inventory of every clip in an Final Cut Pro event or project timeline as a tab-delimited file suitable for database import (e.g.,">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../static/favicon.ico" />
-    <link href="../resources/css/retype.css?v=4.4.0.827812665651" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.4.0.827813262063" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.4.0.827812665651" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.4.0.827813262063" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.4.0.827812665651" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.4.0.827813262063" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -244,7 +244,201 @@
 
                 <!-- Page content  -->
 <h1 id="how-to-use">How To Use</h1>
-<p>Instructions...</p>
+<h2 id="features">Features</h2>
+<h3 id="codebook">Codebook</h3>
+<p>Export a complete inventory of every clip in an Final Cut Pro event or project timeline as a tab-delimited file suitable for database import (e.g., FileMaker).</p>
+<ul>
+<li>Reads projects, sync-clips, multicam clips, and standalone event clips</li>
+<li>Outputs columns for Name, Tape, Camroll, Source TC In/Out, Duration, Record TC In/Out, FPS, Description, and Comments</li>
+<li>Automatically discovers and includes all custom metadata fields (Shot Notes, custom columns)</li>
+<li>Optional prefix stripping for column headers (e.g., remove <code translate="no" v-pre>MBF_</code> from metadata field names)</li>
+<li>Optional CSV export alongside the primary TXT</li>
+<li>Live formatted preview with horizontal scrolling</li>
+</ul>
+<hr>
+<h3 id="vfx-pull">VFX Pull</h3>
+<p>Extract VFX clips from your timeline with handles, versioning, and role assignment. Produces an FCPXML that can be imported directly into Final Cut Pro.</p>
+<p><strong>Extraction</strong></p>
+<ul>
+<li>Three identification modes: Marker Only, Role Only, or Marker &amp; Role</li>
+<li>Marker type filters: All, Standard, Chapter, To-Do, or Completed</li>
+<li>Configurable frame handles (head and tail)</li>
+<li>Compound clip wrapping (optional)</li>
+<li>Effect preservation -- carries over video/audio filters, color corrections, and spatial transforms</li>
+<li>Recurses into compound clips and multicam clips to find nested VFX markers</li>
+</ul>
+<p><strong>Naming and Versioning</strong></p>
+<ul>
+<li>Plate-type suffix from subrole auto-detection (e.g., <code translate="no" v-pre>_MP01</code>, <code translate="no" v-pre>_BG</code>, <code translate="no" v-pre>_CP</code>) with a dropdown populated from the source FCPXML</li>
+<li>Change-aware version tracking: appends <code translate="no" v-pre>_v001</code>, <code translate="no" v-pre>_v002</code>, etc., incrementing only when timecode or source reel actually changes</li>
+<li>Per-project version history stored in Application Support, with controls to create, reveal, and delete version projects</li>
+<li>Live clip name preview showing the assembled name format</li>
+</ul>
+<p><strong>Export</strong></p>
+<ul>
+<li>VFX Scan TXT sidecar with Scan Name, VFX ID, Suffix, Start Frame, End Frame, Frame Duration, Handles, Tape, TC range, Pull Date, and Pull ID</li>
+<li>Sidecar CSV with version history for the current export</li>
+<li>Configurable Pull ID and Start Frame fields</li>
+<li>Role assignment with presets (VFX-Pull with date suffix, Custom, or None)</li>
+<li>Open in Final Cut Pro after save</li>
+</ul>
+<hr>
+<h3 id="vfx-naming">VFX Naming</h3>
+<p>Batch-rename VFX clips with sequential shot IDs based on scene metadata, a showcode, and incremental counters. Injects chapter markers carrying the generated shot ID into the FCPXML.</p>
+<p><strong>Shot ID Format</strong></p>
+<ul>
+<li>Showcode prefix (e.g., <code translate="no" v-pre>MBF</code>)</li>
+<li>Optional vendor code (e.g., <code translate="no" v-pre>RSP</code>)</li>
+<li>Configurable scene digit padding (1, 2, or 3 digits)</li>
+<li>Configurable counter digit padding (2, 3, or 4 digits) and increment step</li>
+<li>Fallback scene number for clips without scene metadata</li>
+<li>Live example preview (e.g., <code translate="no" v-pre>MBF_093_0010</code>)</li>
+</ul>
+<p><strong>Identification</strong></p>
+<ul>
+<li>Identify clips by Role, Marker, or Role or Marker</li>
+<li>Trigger marker type: Chapter, Standard, or To-Do</li>
+<li>Configurable target role (default: VFX)</li>
+</ul>
+<p><strong>Options</strong></p>
+<ul>
+<li>Overwrite existing IDs or skip clips that already carry a matching shot ID</li>
+<li>Reuse missing IDs (fill gaps in numbering) or continue after the highest existing counter</li>
+<li>Scene numbers are sanitized (e.g., <code translate="no" v-pre>104.3</code> and <code translate="no" v-pre>104pt2</code> both resolve to <code translate="no" v-pre>104</code>)</li>
+</ul>
+<hr>
+<h3 id="vfx-titles">VFX Titles</h3>
+<p>Generate VFX title overlay clips from markers already present on your timeline. The marker name becomes the Shot ID and the marker note becomes the scope of work. The output is an FCPXML containing a gap with title clips anchored at each marker position, ready to be imported and copied onto your timeline.</p>
+<ul>
+<li>Title text format: <code translate="no" v-pre>SHOT_ID -- Scope of Work</code></li>
+<li>Yellow Menlo text with drop shadow on a transparent background</li>
+<li>Three position presets: Center, Upper-left (1080p), or Upper-left (2.35:1)</li>
+<li>Identification mode: Marker Only, Role Only, or Marker &amp; Role</li>
+<li>Marker type filter: All, Standard, Chapter, To-Do, or Completed</li>
+</ul>
+<hr>
+<h3 id="vfx-shot-list">VFX Shot List</h3>
+<p>Extract a VFX shot list from your timeline as a tab-delimited TXT or a File129-format EDL.</p>
+<p><strong>VFX Shot TXT</strong></p>
+<ul>
+<li>Columns: VFX Shot ID, Rec TC In/Out, Rec Duration, Frame Count, Src TC In/Out, Src Duration, Reel, Scene, Take, Clip Name, Marker Name, Marker Comment, plus any custom metadata</li>
+<li>Auto-detects frame rate from the FCPXML format resource</li>
+<li>Recurses into compound clips, multicam clips (active video angle preferred), and sync-clips</li>
+<li>Optional CSV export alongside TXT</li>
+</ul>
+<p><strong>File129 EDL</strong></p>
+<ul>
+<li>Standard EDL header with title and FCM line</li>
+<li>Marker names serve as clip slates</li>
+<li>Source and record timecodes, reel names, LOC comments with marker color</li>
+</ul>
+<p><strong>Shared Options</strong></p>
+<ul>
+<li>Identification mode: Marker Only, Role Only, or Marker &amp; Role</li>
+<li>Marker type filter with role checkboxes auto-populated from the source FCPXML</li>
+</ul>
+<hr>
+<h3 id="vfx-delivery">VFX Delivery</h3>
+<p>Match VFX delivery files back to your timeline by marker name and place them as anchored clips in a new FCPXML project.</p>
+<ul>
+<li>Drop a source timeline FCPXML and a folder of VFX files (MOV, MP4, MXF, M4V)</li>
+<li>Matching by marker name: exact case-insensitive match, then partial match (filename starts with marker name)</li>
+<li>All versions of each shot are stacked (sorted by version ascending, latest on top)</li>
+<li>Configurable handle frame trimming and slate frame compensation (+1 frame)</li>
+<li>Marker type filter: All, Standard, Chapter, To-Do, or Completed</li>
+<li>Role assignment with presets: VFX, Comp, VFX Shots, or Custom</li>
+<li>Keyword tagging with the delivery folder name</li>
+<li>Live preview showing matched files, unmatched markers, and unmatched files</li>
+<li>Open in Final Cut Pro after save</li>
+</ul>
+<hr>
+<h3 id="vfx-compare">VFX Compare</h3>
+<p>Compare two versions of a VFX shot list and generate a color-coded XLSX spreadsheet report.</p>
+<p><strong>Input Modes</strong></p>
+<ul>
+<li>TXT Files: compare two previously exported VFX Shot TXT files</li>
+<li>FCPXML: compare two FCPXML sequences directly (extracts shots on the fly)</li>
+</ul>
+<p><strong>Comparison Logic</strong></p>
+<ul>
+<li>Shots keyed by VFX Shot ID (first column)</li>
+<li>Five status categories: Identical, Changed, Rec TC Change (timecode shifted but duration unchanged), Added, Omitted</li>
+<li>Per-cell change highlighting for Changed and TC Change rows</li>
+<li>Auto-generated Change Notes column summarizing field-level differences</li>
+</ul>
+<p><strong>Output</strong></p>
+<ul>
+<li>Native XLSX (OOXML ZIP archive) compatible with Excel and Numbers without warnings</li>
+<li>Two worksheets: VFX Comparison (full shot detail) and Summary (status counts)</li>
+<li>Extra columns inserted after VFX Shot ID: Scope of Work, Notes, Change Notes</li>
+<li>Color-coded rows: green (Identical), yellow (Changed), orange (TC Change), red (Omitted), blue (Added)</li>
+</ul>
+<p><strong>UX</strong></p>
+<ul>
+<li>Live preview updates as soon as both files are dropped</li>
+<li>Auto-switches input mode when you drop an FCPXML onto TXT mode or vice versa</li>
+</ul>
+<hr>
+<h2 id="usage">Usage</h2>
+<h3 id="pulling-vfx-plates">Pulling VFX Plates</h3>
+<ol>
+<li>In Final Cut Pro, add markers (Chapter, Standard, or To-Do) to each VFX clip and assign VFX subroles as needed.</li>
+<li>Export your timeline as FCPXML, or drag the project directly from Final Cut Pro into VFX Toolbox.</li>
+<li>Open the <strong>VFX Pull</strong> tab and drop the FCPXML onto the source zone.</li>
+<li>Configure extraction: choose the identification mode, marker type, and frame handles.</li>
+<li>Under Naming &amp; Versioning, enable version tracking and select or create a project. Choose a plate suffix from the subrole dropdown if applicable.</li>
+<li>Under Export, set the Pull ID and Start Frame, and enable the Scan TXT and/or Sidecar CSV exports.</li>
+<li>Click <strong>Save VFX Pull FCPXML</strong> and import the result into Final Cut Pro.</li>
+</ol>
+<hr>
+<h3 id="naming-vfx-shots">Naming VFX Shots</h3>
+<ol>
+<li>In Final Cut Pro, mark your VFX clips with markers or assign a VFX role.</li>
+<li>Export the timeline as FCPXML and drop it onto the <strong>VFX Naming</strong> tab.</li>
+<li>Enter your showcode (e.g., <code translate="no" v-pre>MBF</code>), optional vendor code, scene/counter padding, and increment step.</li>
+<li>Choose the identification mode and trigger marker type.</li>
+<li>Review the preview and click <strong>Save Named FCPXML</strong>.</li>
+<li>Import the named FCPXML back into FCP. Each clip now carries a chapter marker with the generated shot ID.</li>
+</ol>
+<hr>
+<h3 id="generating-vfx-title-overlays">Generating VFX Title Overlays</h3>
+<ol>
+<li>Ensure your timeline markers carry shot IDs as names and scope-of-work descriptions as notes.</li>
+<li>Export the timeline and drop it onto the <strong>VFX Titles</strong> tab.</li>
+<li>Choose the position preset and marker filter.</li>
+<li>Click <strong>Generate VFX Titles</strong> and import the output FCPXML into FCP.</li>
+<li>Select all the title clips in the new event and paste them onto your timeline.</li>
+</ol>
+<hr>
+<h3 id="importing-vfx-deliveries">Importing VFX Deliveries</h3>
+<ol>
+<li>Export your current timeline as FCPXML.</li>
+<li>Open the <strong>VFX Delivery</strong> tab. Drop the FCPXML onto the Source Timeline zone and the delivery folder onto the VFX Folder zone.</li>
+<li>Review the match preview. Set handle frames, slate frame trimming, and the role.</li>
+<li>Click <strong>Save VFX Delivery</strong> and import the result into Final Cut Pro. All matched files appear as connected clips at their marker positions.</li>
+</ol>
+<hr>
+<h3 id="exporting-a-vfx-shot-list">Exporting a VFX Shot List</h3>
+<ol>
+<li>Drop your FCPXML onto the <strong>VFX Shot List</strong> tab.</li>
+<li>Choose the output format (VFX Shot TXT or File129 EDL), identification mode, and marker filter.</li>
+<li>Click <strong>Export</strong>. Optionally enable &quot;Also export as CSV&quot; for the TXT format.</li>
+</ol>
+<hr>
+<h3 id="comparing-vfx-versions">Comparing VFX Versions</h3>
+<ol>
+<li>Open the <strong>VFX Compare</strong> tab and select the input mode (TXT Files or FCPXML).</li>
+<li>Drop the previous version on the left and the current version on the right.</li>
+<li>For FCPXML mode, configure the identification mode, marker filter, and roles.</li>
+<li>Click <strong>Compare &amp; Export XLSX</strong>. Open the spreadsheet to review color-coded changes.</li>
+</ol>
+<hr>
+<h3 id="exporting-a-metadata-codebook">Exporting a Metadata Codebook</h3>
+<ol>
+<li>Drop an Final Cut Pro event or project FCPXML onto the <strong>Codebook</strong> tab.</li>
+<li>Optionally enter a prefix to strip from metadata column headers.</li>
+<li>Click <strong>Export Codebook TXT</strong>. Enable &quot;Also export as CSV&quot; if needed.</li>
+</ol>
 
                 
                 <!-- Required only on API pages -->
