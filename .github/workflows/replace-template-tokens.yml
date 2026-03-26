@@ -1,0 +1,74 @@
+name: Replace Template Tokens
+
+on:
+  workflow_dispatch:
+    inputs:
+      application_full_name:
+        description: "Application full name"
+        required: true
+        type: string
+      cost:
+        description: "Displayed purchase cost"
+        required: true
+        type: string
+      appstore_url:
+        description: "App Store URL"
+        required: true
+        type: string
+
+jobs:
+  replace:
+    name: Replace placeholders
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Replace template tokens
+        env:
+          APPLICATION_FULL_NAME: ${{ inputs.application_full_name }}
+          GITHUB_PROJECT_NAME: ${{ github.event.repository.name }}
+          COST: ${{ inputs.cost }}
+          APPSTORE_URL: ${{ inputs.appstore_url }}
+        run: |
+          set -euo pipefail
+
+          files=()
+
+          while IFS= read -r file; do
+            if [[ "$file" == .github/workflows/* ]]; then
+              continue
+            fi
+            files+=("$file")
+          done < <(git ls-files '*.md' '*.yml' '*.yaml')
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No markdown or YAML files found."
+            exit 0
+          fi
+
+          perl -i -pe '
+            s/\Q<<APPLICATION_FULL_NAME>>\E/$ENV{APPLICATION_FULL_NAME}/g;
+            s/\Q<<GITHUB_PROJECT_NAME>>\E/$ENV{GITHUB_PROJECT_NAME}/g;
+            s/\Q<<COST>>\E/$ENV{COST}/g;
+            s/\Q<<APPSTORE_URL>>\E/$ENV{APPSTORE_URL}/g;
+          ' "${files[@]}"
+
+      - name: Commit and push changes
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet; then
+            echo "No token changes were needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: replace website template tokens"
+          git push
