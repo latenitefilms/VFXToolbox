@@ -2,6 +2,11 @@
 
 **VFX Toolbox** is a one-time payment of **USD$19.99** on the **Mac App Store**.
 
+!!!tip Currently in public beta! 🥳
+VFX Toolbox is currently in public beta whilst we wait for Apple's Approval.\
+You can download it on Apple's [TestFlight](https://discord.com/channels/1365861122720137276/1470049785057640457).
+!!!
+
 There is no free trial.
 
 > [:icon-desktop-download: Click here to **buy** on the **Mac App Store**](https://apps.apple.com/app/vfx-toolbox/id6759046379)
