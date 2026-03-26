@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://VFXToolbox.fcp.cafe/sitemap.xml.gz
+Sitemap: https://vfxtoolbox.fcp.cafe/sitemap.xml.gz
