@@ -1,8 +1,8 @@
 # Release Notes
 
-### 1.0.0 (Build 9)
+### 1.0.0 (Build 5)
 
 **🎉 Released:**
-- COMING VERY SOON!
+- Sunday 29th March 2026
 
 This is the first release of **VFX Toolbox**. Woohoo!

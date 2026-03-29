@@ -1,3 +1,3 @@
 # Frequently Asked Questions
 
-Coming soon!
+Got a question? Let us know!
